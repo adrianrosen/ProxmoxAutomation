@@ -1,3 +1,6 @@
+# MacOS file system
+.DS_Store
+
 # Cache objects
 packer_cache/
 
@@ -14,3 +17,7 @@ crash.log
 
 # For built boxes
 *.box
+
+
+# Exclude private terraform files
+*.tfvars
