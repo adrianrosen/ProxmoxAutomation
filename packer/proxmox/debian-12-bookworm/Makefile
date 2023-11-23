@@ -1,5 +1,5 @@
 PACKER_FILE = debian-12-bookworm.pkr.hcl
-PACKER_FLAGS = -var-file='../credentials.pkr.hcl'
+PACKER_FLAGS = -var-file='../credentials.pkrvars.hcl'
 
 
 build: validate $(PACKER_FILE)

@@ -12,3 +12,8 @@ See the README.md in the packer and terraform directories.
 ## License
 
 See the LICENSE file.
+
+## Resources used as inspiration
+- Christian Lempa's [YouTube video](https://www.youtube.com/watch?v=1nf3WOEFq1Y)
+- Fabricio Boreli's [packer_debian_bullseye_kvm](https://gitlab.com/fabricioboreli.eti.br/packer_debian_bullseye_kvm/-/tree/main) repository
+- N7KnightOne's [packer-template-debian-11](https://github.com/N7KnightOne/packer-template-debian-11/tree/main) repository
