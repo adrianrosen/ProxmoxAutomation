@@ -21,3 +21,8 @@ crash.log
 
 # Exclude private terraform files
 *.tfvars
+
+# Ignore terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
