@@ -81,9 +81,16 @@ resource "proxmox_vm_qemu" "pihole-debian-12" {
     host        = "${var.pihole_host}"
   }
 
-  # Test upload to see if it works
   provisioner "file" {
-    source      = "../README.md"
-    destination = "/home/serveradmin/README.md"
+    source      = "../configs/pihole/docker-compose.yml"
+    destination = "/home/serveradmin/docker-compose.yml"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "docker compose pull",
+      "docker compose up --force-recreate --remove-orphans --build -d",
+      "docker image prune -f",
+    ]
   }
 }

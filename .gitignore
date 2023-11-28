@@ -26,3 +26,5 @@ crash.log
 *.tfstate
 *.tfstate.backup
 .terraform/
+
+configs/

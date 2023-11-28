@@ -30,3 +30,9 @@
               "metrics-addr": "127.0.0.1:9323",
               "experimental": true
       }
+
+- name: Fix Docker Permissions
+  shell: |
+    groupadd -f docker
+    usermod -aG docker serveradmin
+    exit 0
