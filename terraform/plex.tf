@@ -67,7 +67,7 @@ resource null_resource update-and-provision-plex {
 
   triggers = {
     update_packages = var.FORCE_UPDATE_PACKAGES
-    dir_sha256 = sha256(join("", [for f in fileset("../configs/plex", "*"): filesha256("../configs/plex/${f}")]))
+    dir_sha256 = sha256(join("", [for f in fileset("${var.plex_config_dir}", "*"): filesha256("${var.plex_config_dir}/${f}")]))
     last_run_month = data.external.current_month_and_year.result.now
   }
 
@@ -79,7 +79,7 @@ resource null_resource update-and-provision-plex {
   }
 
   provisioner "file" {
-    source      = "../configs/plex/docker-compose.yml"
+    source      = "${var.plex_config_dir}/docker-compose.yml"
     destination = "/home/serveradmin/docker-compose.yml"
   }
 

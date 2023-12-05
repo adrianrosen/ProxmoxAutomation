@@ -64,7 +64,7 @@ resource null_resource update-and-provision-pihole {
 
   triggers = {
     update_packages = var.FORCE_UPDATE_PACKAGES
-    dir_sha256 = sha256(join("", [for f in fileset("../configs/pihole", "*"): filesha256("../configs/pihole/${f}")]))
+    dir_sha256 = sha256(join("", [for f in fileset("${var.pihole_config_dir}", "*"): filesha256("${var.pihole_config_dir}/${f}")]))
     last_run_month = data.external.current_month_and_year.result.now
   }
 
@@ -76,7 +76,7 @@ resource null_resource update-and-provision-pihole {
   }
 
   provisioner "file" {
-    source      = "../configs/pihole/docker-compose.yml"
+    source      = "${var.plex_config_dir}/docker-compose.yml"
     destination = "/home/serveradmin/docker-compose.yml"
   }
 

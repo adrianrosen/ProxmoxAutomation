@@ -25,6 +25,9 @@ variable "plex_host" {
 variable "plex_storage" {
   type = string
 }
+variable "plex_config_dir" {
+  type = string
+}
 ################ Pihole ################
 variable "pihole_macaddr" {
   type = string
@@ -38,6 +41,9 @@ variable "pihole_host" {
 variable "pihole_storage" {
   type = string
 }
+variable "pihole_config_dir" {
+  type = string
+}
 ################ Traefik ################
 variable "traefik_macaddr" {
   type = string
@@ -49,5 +55,8 @@ variable "traefik_host" {
   type = string
 }
 variable "traefik_storage" {
+  type = string
+}
+variable "traefik_config_dir" {
   type = string
 }

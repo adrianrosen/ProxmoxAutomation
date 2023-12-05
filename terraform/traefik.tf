@@ -72,9 +72,6 @@ resource proxmox_virtual_environment_vm traefik-debian-12 {
   }
 }
 
-data local_file traefik-docker-compose {
-  filename = "../configs/traefik/docker-compose.yml"
-}
 #################### PROVISIONING ####################
 # Potentially dangerous... so occassionally do this manually
 # resource null_resource update-and-provision-traefik {
@@ -84,7 +81,7 @@ data local_file traefik-docker-compose {
 
 #   triggers = {
 #     update_packages = var.FORCE_UPDATE_PACKAGES
-#     dir_sha256 = sha256(join("", [for f in fileset("../configs/traefik", "*"): filesha256("../configs/traefik/${f}")]))
+#     dir_sha256 = sha256(join("", [for f in fileset("${var.traefik_config_dir}", "*"): filesha256("${var.traefik_config_dir}/${f}")]))
 #     last_run_month = data.external.current_month_and_year.result.now
 #   }
 
@@ -96,17 +93,17 @@ data local_file traefik-docker-compose {
 #   }
 
 #   provisioner "file" {
-#     source      = "../configs/traefik/docker-compose.yml"
+#     source      = "${var.traefik_config_dir}/docker-compose.yml"
 #     destination = "/home/serveradmin/docker-compose.yml"
 #   }
 
 #   provisioner "file" {
-#     source      = "../configs/traefik/config.yml"
+#     source      = "${var.traefik_config_dir}/config.yml"
 #     destination = "/home/serveradmin/traefik/config.yml"
 #   }
 
 #   provisioner "file" {
-#     source      = "../configs/traefik/traefik.yml"
+#     source      = "${var.traefik_config_dir}/traefik.yml"
 #     destination = "/home/serveradmin/traefik/data/traefik.yml"
 #   }
 
