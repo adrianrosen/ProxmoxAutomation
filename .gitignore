@@ -30,3 +30,4 @@ crash.log
 
 configs/
 *.log
+*.ignore

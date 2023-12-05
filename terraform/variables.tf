@@ -51,19 +51,3 @@ variable "traefik_host" {
 variable "traefik_storage" {
   type = string
 }
-################ Tdarr ################
-variable "tdarr_macaddr" {
-  type = string
-}
-variable "tdarr_ipconfig0" {
-  type = string
-}
-variable "tdarr_host" {
-  type = string
-}
-variable "tdarr_storage" {
-  type = string
-}
-variable "tdarr_cache_storage" {
-  type = string
-}
